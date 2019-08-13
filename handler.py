@@ -1,4 +1,4 @@
-from jobs.FiveMin import fiveMinJob
+from coinwatch.jobs.FiveMin import fiveMinJob
 
 def handler(event, context):
     fiveMinJob()

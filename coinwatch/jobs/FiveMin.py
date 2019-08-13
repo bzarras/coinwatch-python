@@ -1,6 +1,6 @@
 import urllib.request as ur
 import json
-from .utils.prices import getLatestPrices, getPreviousPrices, persistPrices
+from coinwatch.utils.prices import getLatestPrices, getPreviousPrices, persistPrices
 
 def fiveMinJob():
     """

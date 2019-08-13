@@ -1,11 +1,11 @@
 import urllib.request as ur
 import json
 import boto3
+from coinwatch.types.Coin import Coin
 
 def getLatestPrices():
     """
     Hardcoded to get coin data from CoinMarketCap.com
-    
     Returns subset of that data containing only bitcoin, ethereum, and litecoin
     """
     
@@ -15,7 +15,9 @@ def getLatestPrices():
     print("Successfully got price data from CoinMarketCap")
 
     interested_ids = { "bitcoin", "ethereum", "litecoin" }
-    filtered_coins = [coin for coin in coin_data if coin["id"] in interested_ids]
+    filtered_coins = [Coin(coin) for coin in coin_data if coin["id"] in interested_ids]
+    for coin in filtered_coins:
+        print(json.dumps(coin.__dict__, indent=2))
     return filtered_coins
 
 def getPreviousPrices():
