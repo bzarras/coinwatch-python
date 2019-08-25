@@ -1,5 +1,9 @@
 from coinwatch.jobs.FiveMin import fiveMinJob
 
 def handler(event, context):
-    fiveMinJob()
-    return { "statusCode": 200 }
+    try:
+        fiveMinJob(2.5)
+        return { "statusCode": 200 }
+    except Exception as err:
+        print(err)
+        return { "statusCode": 500 }

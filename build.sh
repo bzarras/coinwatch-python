@@ -1,3 +1,3 @@
 #!/bin/bash
 
-zip -r handler.zip handler.py jobs
+zip -r handler.zip handler.py coinwatch
