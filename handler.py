@@ -3,7 +3,7 @@ import os
 
 def handler(event, context):
     try:
-        percent_threshold = os.environ.get("PERCENT_THRESHOLD", 2.5)
+        percent_threshold = float(os.environ.get("PERCENT_THRESHOLD", "2.5"))
         fiveMinJob(percent_threshold)
         return { "statusCode": 200 }
     except Exception as err:
