@@ -9,6 +9,8 @@ def fiveMinJob(threshold_percent):
 
     new_coin_prices = getLatestPrices()
     old_coin_prices = getPreviousPrices()
+    persistPrices(new_coin_prices)
+    
     coins_above_threshold = filterCoinsAboveThreshold(new_coin_prices, old_coin_prices, threshold_percent)
 
     # Exit early if there is nothing to do
@@ -25,9 +27,6 @@ def fiveMinJob(threshold_percent):
     
     for user in users:
         user.notify(email_client)
-
-    # As the final step, persist the new prices as the old prices
-    persistPrices(new_coin_prices)
 
 def filterCoinsAboveThreshold(new_coins, old_coins, threshold):
     coins_above_threshold = []
